@@ -94,6 +94,7 @@ class ServerThreading(threading.Thread):
                     self._socket.send(("%s" % back_msg).encode(self._encoding))
 
                     wei_bo_login.send_msg_to_weibo(msg)
+                    break
 
             pass
         except Exception as identifier:
