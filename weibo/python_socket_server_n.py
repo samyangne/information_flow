@@ -97,7 +97,7 @@ class ServerThreading(threading.Thread):
 
             pass
         except Exception as identifier:
-            self._socket.send("500".encode(self._encoding))
+            #self._socket.send("500".encode(self._encoding))
             print(identifier)
             pass
         finally:
