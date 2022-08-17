@@ -73,7 +73,8 @@ def login_weibo(driver):
     # 检测是否登录成功
     time.sleep(5)
     try:
-        bodyElement = driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[1]/div/div[1]/div/div/div[2]/div/div[1]/a[5]/div/div/div/div')
+        bodyElement = driver.find_element(By.XPATH,
+                                          '//*[@id="app"]/div[1]/div[1]/div/div[1]/div/div/div[2]/div/div[1]/a[5]/div/div/div/div')
         flag = check_login(bodyElement)
         print('是否已登录：')
         print(flag)
@@ -84,14 +85,19 @@ def login_weibo(driver):
         print("")
 
 
-
 # 发布微博
 def post_weibo(content, driver):
     time.sleep(5)
     weibo_content = driver.find_element(By.XPATH, '//*[@id="homeWrap"]/div[1]/div/div[1]/div/textarea')
     weibo_content.send_keys(content)
     time.sleep(5)
-    bt_push = driver.find_element(By.XPATH, '//*[@id="homeWrap"]/div[1]/div/div[4]/div/button')
+    bt_push = driver.find_element(By.XPATH,
+                                  '//*[@id="homeWrap"]/div[1]/div/div[4]/div/div[5]/button')
+    # //*[@id="homeWrap"]/div[1]/div/div[4]/div/button --原来
+    # //*[@id="homeWrap"]/div[1]/div/div[4]/div/div[4]/button
+    # // *[ @ id = "homeWrap"] / div[1] / div / div[4] / div / div[4] / button
+    # // *[ @ id = "homeWrap"] / div[1] / div / div[4] / div / div[4] / button
+    # // *[ @ id = "homeWrap"] / div[1] / div / div[4] / div / div[5] / button
     time.sleep(5)
     print('点击发送')
     bt_push.click()  # 点击发布
